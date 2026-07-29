@@ -1,10 +1,12 @@
 {
   "name": "student-record-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "node app.js",
+  "dev": "nodemon app.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mugisharayan/student-record-api.git"
@@ -19,5 +21,8 @@
   "description": "",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
