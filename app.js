@@ -32,7 +32,21 @@ app.get("/students/:id", (req, res) => {
 // PATCH - Update a student
 
 // DELETE - Remove a student
+app.delete("/students/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const initialLength = students.length;
 
+    students = students.filter((s) => s.id !== id);
+
+    if (students.length === initialLength) {
+        return res.status(404).json({ 
+            error: "Student not found"
+        });
+    }
+    res.status(200).json({ 
+        message: "Student deleted successfully" 
+    });
+});
 
 const PORT = 4000;
 
