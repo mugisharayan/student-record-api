@@ -79,11 +79,7 @@ app.post("/students", (req, res) => {
 app.delete("/students/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const initialLength = students.length;
-
     students = students.filter((s) => s.id !== id);
-
-
-
     if (students.length === initialLength) {
         return res.status(404).json({ 
             error: "Student not found"
@@ -94,9 +90,7 @@ app.delete("/students/:id", (req, res) => {
     });
 });
 
-
 const PORT = 4000;
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
