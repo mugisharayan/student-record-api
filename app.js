@@ -74,7 +74,23 @@ app.post("/students", (req, res) => {
 });
 
 // PATCH - Update a student
+app.patch("/students/:id", (req, res) => {
 
+    const id = parseInt(req.params.id);
+
+    const student = students.find((s) => s.id === id);
+
+    if (!student) {
+        return res.status(404).json({
+            error: "Student not found"
+        });
+    }
+
+    Object.assign(student, req.body);
+
+    res.status(200).json(student);
+
+});
 // DELETE - Remove a student
 app.delete("/students/:id", (req, res) => {
     const id = parseInt(req.params.id);
