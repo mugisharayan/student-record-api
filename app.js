@@ -5,6 +5,22 @@ const app = express();
 app.use(express.json());
 
 // in-memory data (Temporary database)
+let students = [
+    {
+        id: 1,
+        name: "Mugisha Akram",
+        age: 21,
+        course: "Computer Science",
+        year: 2
+    },
+    {
+        id: 2,
+        name: "Muhoozi Shukuran",
+        age: 22,
+        course: "Information Technology",
+        year: 3
+    }
+];
 
 // GET all students
 app.get("/students", (req, res) => {
