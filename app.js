@@ -38,8 +38,12 @@ app.post("/students", (req, res) => {
   ) {
     return res.status(400).json({ error: "All fields are required" });
   }
-  if (Number.isNaN(Number(age))) {
-    return res.status(400).json({ error: "Age must be a number" });
+
+  // Validate numeric fields
+  if (Number.isNaN(Number(age)) || Number.isNaN(Number(year))) {
+    return res.status(400).json({
+      error: "Age and year must be numbers",
+    });
   }
 
   const newStudent = {
@@ -47,7 +51,7 @@ app.post("/students", (req, res) => {
     name,
     course,
     age: Number(age),
-    year,
+    year: Number(year),
   };
   students.push(newStudent);
   res.status(201).json(newStudent);
