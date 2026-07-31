@@ -19,9 +19,15 @@ let students = [
         age: 22,
         course: "Information Technology",
         year: 3
+    },
+    {
+        id: 3,
+        name: "Festus Asembo",
+        age: 46,
+        course: "Computer Science",
+        year: 2006
     }
 ];
-
 // GET all students
 app.get("/students", (req, res) => {
   res.status(200).json(students);
